@@ -1,0 +1,24 @@
+{
+  "name": "bootstrap_blog",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A bootstrap blog template that can be easy changed with the config file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.ronny5.de:a.ortmann/bootstrap_blog.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "blog",
+    "bootstrap_blog"
+  ],
+  "author": "Adrian Ortmann and Daniel Schwarz",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~3.4.3"
+  }
+}
