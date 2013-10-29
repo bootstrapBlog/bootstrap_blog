@@ -40,7 +40,7 @@ module.exports = function(){
 
     ], function(err){
       console.log(config);
-      config = JSON.stringify(config);
+      config = JSON.stringify(config, null, 2);
       fs.writeFileSync('./blog-config', config);
     });
 
