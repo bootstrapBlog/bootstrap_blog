@@ -1,3 +1,5 @@
+'use strict';
+
 var readline = require('readline');
 var async = require('async');
 var fs = require('fs');
@@ -25,10 +27,10 @@ module.exports = function(cb){
       });
     },
     function(callback){
-    rl.question('Admin username: ', function(name){
-      config.username = name;
-      callback(null);
-    });
+      rl.question('Admin username: ', function(name){
+        config.username = name;
+        callback(null);
+      });
     },
     function(callback){
       rl.question('Admin password: ', function(name){
@@ -42,7 +44,7 @@ module.exports = function(cb){
       console.log(config);
       config = JSON.stringify(config, null, 2);
       fs.writeFileSync('./blog.config', config);
-      cb()
+      cb();
     });
 
 };
