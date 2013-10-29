@@ -20,6 +20,7 @@ module.exports.start = function(settings) {
 }
 
 function setupBlog(settings){
+  var config = JSON.parse(fs.readFileSync('./blog.config'));
   buildNavbarHtmlFile(settings.navbar);
   app.set('view options', {layout: false});
   app.configure(function() {
@@ -31,8 +32,8 @@ function setupBlog(settings){
       res.render('index.html');
   });
 
-  app.listen(8080);
-  console.log('Blog is running on port 8080...');
+  app.listen(config.blogPort);
+  console.log('Blog is running on port ' + config.blogPort);
 
 };
 
