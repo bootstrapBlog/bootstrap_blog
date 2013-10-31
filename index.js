@@ -2,7 +2,7 @@
 
 var fs = require('fs');
 var initializeBlog = require('./lib/initialize');
-var setupBlog = require('./lib/setup-blog');
+var webserver = require('./lib/webserver');
 
 
 
@@ -10,10 +10,10 @@ module.exports.start = function(settings) {
   if (fs.existsSync('./blog.config') === false) {
     console.log('no config file - initializing')
     initializeBlog(function(){
-      setupBlog(settings);
+      webserver(settings);
     });
   } else {
     console.log('config found - starting blog')
-    setupBlog(settings);
-  };
-}
+    webserver(settings);
+  }
+};
