@@ -1,7 +1,7 @@
 'use strict';
 
 var fs = require('fs');
-var initializeBlog = require('./initialize.js');
+var initializeBlog = require('./lib/initialize');
 var setupBlog = require('./lib/setup-blog');
 
 
