@@ -11,3 +11,5 @@ node app.js
 ```
 
 on first start you´ll have to specify some options, which are saved for the next start
+
+localhost:27017/bootstrap_blog
