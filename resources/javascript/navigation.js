@@ -3,7 +3,8 @@
 $(function() {
   var url = window.location.hash;
   var requestedSite = url.substring(url.indexOf('#')+1);
-    
+  loadNavbar();
+
   if(requestedSite !== '') {
     navigateToRequestedID(requestedSite);
   }
@@ -31,4 +32,8 @@ function loadNewHtmlContentFromFile(htmlPath) {
 function setActiveFlag(elementID) {
   $('.navbar li').removeClass('active');
   document.getElementById(elementID).className = 'active';
+}
+
+function loadNavbar() {
+  $('#blog-navbar').load('../html/navbar.html');
 }
