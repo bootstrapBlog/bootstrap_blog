@@ -5,15 +5,15 @@ var initializeBlog = require('./lib/initialize');
 var Database = require('./lib/database');
 var webserver = require('./lib/webserver');
 
-module.exports.start = function(settings) {
+module.exports.start = function(settings, mailTransport) {
   if (fs.existsSync('./blog.config') === false) {
     console.log('no config file - initializing');
     initializeBlog(function(){
-      webserver(settings);
+      webserver(settings, mailTransport);
     });
   } else {
     console.log('config found - starting blog');
-    webserver(settings);
+    webserver(settings, mailTransport);
     fs.readFile('./blog.config', 'utf8', function (err, data) {
       if (err) {
         console.log('Error: ' + err);
