@@ -4,11 +4,11 @@ blog.start({
 	navbar: [
     {
       title: 'Github',
-      path: 'http://www.github.com'
+      path: 'https://github.com/aortmannm'
     },
     {
       title: 'Google+',
-      path: 'http://www.google.de'
+      path: 'http://google.com/+AdrianOrtmann'
     }
   ]
 });
