@@ -5,8 +5,6 @@ var initializeBlog = require('./lib/initialize');
 var Database = require('./lib/database');
 var webserver = require('./lib/webserver');
 
-
-
 module.exports.start = function(settings) {
   if (fs.existsSync('./blog.config') === false) {
     console.log('no config file - initializing');
