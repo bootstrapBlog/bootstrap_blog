@@ -22,6 +22,7 @@
     "express": "~3.4.3",
     "async": "~0.2.9",
     "sha1": "~1.1.0",
-    "mongoose": "~3.8.0"
+    "mongoose": "~3.8.0",
+    "coffee-script": "~1.6.3"
   }
 }
