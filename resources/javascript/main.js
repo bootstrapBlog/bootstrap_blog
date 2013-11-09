@@ -1,16 +1,23 @@
 'use strict';
 
-function sendContactForm(emailData) {
-  var emailAddress = getContactFormInformation('inputEmail');
-  var name = getContactFormInformation('inputName');
-  var topic = getContactFormInformation('inputTopic');
-  var text = getContactFormInformation('inputText');
+function sendContactForm() {
+  var emailAddress = getFormFieldInformation('contactForm', 'inputEmail');
+  var name = getFormFieldInformation('contactForm', 'inputName');
+  var topic = getFormFieldInformation('contactForm', 'inputTopic');
+  var text = getFormFieldInformation('contactForm', 'inputText');
 
   sendContactInformationToServer(buildJson(emailAddress, name, topic, text));
 }
 
-function getContactFormInformation(inputField) {
-  return document.forms.contactForm[inputField].value;
+function sendAuthenticationInformation(){
+  alert('called');
+  var username = getFormFieldInformation('loginForm', 'email');
+  var password = getFormFieldInformation('loginForm', 'password');
+  alert(username + ' ' + password);
+}
+
+function getFormFieldInformation(form, inputField) {
+  return document.forms.[form][inputField].value;
 }
 
 function buildJson(emailAddress, name, topic, text) {
@@ -27,7 +34,7 @@ function buildJson(emailAddress, name, topic, text) {
 function sendContactInformationToServer(json) {
   $.ajax({
     type : 'POST',
-    url : 'http://localhost:8080/contactMe/new',
+    url : 'contactMe/new',
     contentType : 'application/json; charset=utf-8',
     dataType : 'json',
     async : false,
