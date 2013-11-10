@@ -42,7 +42,7 @@ function sendContactInformationToServer(url, json, navigateTo) {
     data : JSON.stringify(json),
     success : function(data) {
       if(data == true) {
-        $('#blog-navbar').append('<li id="myRegistration">' +
+        $('#blog-navbar').append('<li id="adminArea">' +
           '<a onclick="navigateToRequestedID(\'adminArea\');">Admin-Panel</a></li>');
 
         navigateToRequestedID(navigateTo);

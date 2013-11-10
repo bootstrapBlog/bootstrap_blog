@@ -8,6 +8,8 @@ $(function() {
   if(requestedSite !== '') {
     navigateToRequestedID(requestedSite);
   }
+  $('#blog-navbar').append('<li id="myRegistration">' +
+          '<a onclick="navigateToRequestedID(\'adminArea\');">Admin-Panel</a></li>');
 });
 
 function navigateToRequestedID(elementID) {
