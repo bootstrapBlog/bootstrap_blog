@@ -6,18 +6,19 @@ function sendContactForm() {
   var topic = getFormFieldInformation('contactForm', 'inputTopic');
   var text = getFormFieldInformation('contactForm', 'inputText');
 
-  sendContactInformationToServer(buildJson(emailAddress, name, topic, text));
+  sendContactInformationToServer('contactMe/new', buildJson(emailAddress, name, topic, text), 'contactSend');
 }
 
-function sendAuthenticationInformation(){
-  alert('called');
-  var username = getFormFieldInformation('loginForm', 'email');
-  var password = getFormFieldInformation('loginForm', 'password');
-  alert(username + ' ' + password);
+function getAuthenticationValues(){
+  var json = {
+    "username": getFormFieldInformation('loginForm', 'email'),
+    "password": getFormFieldInformation('loginForm', 'password')
+  };
+  sendContactInformationToServer('authentication', json, 'adminArea');
 }
 
 function getFormFieldInformation(form, inputField) {
-  return document.forms.[form][inputField].value;
+  return document.forms[form][inputField].value;
 }
 
 function buildJson(emailAddress, name, topic, text) {
@@ -31,16 +32,30 @@ function buildJson(emailAddress, name, topic, text) {
   return json;
 }
 
-function sendContactInformationToServer(json) {
+function sendContactInformationToServer(url, json, navigateTo) {
   $.ajax({
     type : 'POST',
-    url : 'contactMe/new',
+    url : url,
     contentType : 'application/json; charset=utf-8',
     dataType : 'json',
     async : false,
     data : JSON.stringify(json),
     success : function(data) {
-      navigateToRequestedID('contactSend');
+      if(data == true) {
+        $('#blog-navbar').append('<li id="myRegistration">' +
+          '<a onclick="navigateToRequestedID(\'adminArea\');">Admin-Panel</a></li>');
+
+        navigateToRequestedID(navigateTo);
+      }
     }
   });
 }
+
+
+// $("#navigationTabsList")
+//                 .append(
+//                     '<li id="myRegistration">'
+//                         + '<a onclick="navigateToRequestedID(\'myRegistration\');">Meine Anmeldung</a></li>');
+//             navigateToRequestedID('myRegistration');
+//             hideOrShowDivs("#navbarRightWhenLoggedIn", true);
+//             hideOrShowDivs("#navbarRightToLogin", false);

@@ -25,7 +25,6 @@ function setMainContentAndActiveFlag(elementID, htmlPath) {
 }
 
 function loadNewHtmlContentFromFile(htmlPath) {
-  // alert(htmlPath);
   $('#mainContentContainer').load(htmlPath);
 }
 
