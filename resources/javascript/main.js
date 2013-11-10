@@ -48,6 +48,9 @@ function sendContactInformationToServer(url, json, navigateTo){
     $("#blog-navbar").append('<li id="adminArea">' +
       '<a onclick="navigateToRequestedID(\'adminArea\');">Admin-Panel</a></li>');
     navigateToRequestedID('adminArea');
+    hideOrShowDivs('#navbarRightWhenLoggedIn', true);
+    hideOrShowDivs('#loginForm', false);
+    $('#username').text(user);
   });
 }
 
@@ -55,4 +58,10 @@ function realiseEnterButton(e) {
   var charCode = (typeof e.which === "13") ? e.which : e.keyCode;
   if(charCode === 13)
     getAuthenticationValues();
+}
+
+function logout() {
+  hideOrShowDivs('#navbarRightWhenLoggedIn', false);
+  hideOrShowDivs('#loginForm', true);
+  location.reload();
 }

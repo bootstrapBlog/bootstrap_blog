@@ -51,6 +51,18 @@
           </div>
           <a type="submit" class="btn btn-success" onclick="getAuthenticationValues()">Sign in</a>
         </form>
+        <div id="navbarRightWhenLoggedIn">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a><span style="margin-left:10px" id="username"></span></a>
+            </li>
+            <li>
+              <a>
+                <span class="glyphicon glyphicon-log-out" onclick="logout()"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

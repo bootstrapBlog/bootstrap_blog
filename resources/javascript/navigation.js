@@ -5,6 +5,8 @@ $(function() {
   var requestedSite = url.substring(url.indexOf('#')+1);
   loadNavbar();
 
+  hideOrShowDivs('#navbarRightWhenLoggedIn', false);
+
   if(requestedSite !== '') {
     navigateToRequestedID(requestedSite);
   }
@@ -37,4 +39,14 @@ function setActiveFlag(elementID) {
 
 function loadNavbar() {
   $('#blog-navbar').load('../html/navbar.html');
+}
+
+function hideOrShowDivs(elementID, isVisible) {
+  // alert(elementID);
+  // alert(isVisible);
+  if (isVisible) {
+    $(elementID).show();
+  } else {
+    $(elementID).hide();
+  }
 }
