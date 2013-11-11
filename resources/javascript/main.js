@@ -78,4 +78,5 @@ function getBlogPost(blogPost) {
 function loadBlogPost(blogData) {
   loadBlogEntry('#blogPostPanelHeader', blogData.title);
   loadBlogEntry('#blogPostPanelBody', blogData.post);
+  loadBlogEntry('#latestBlogPosts', blogData.title);
 }

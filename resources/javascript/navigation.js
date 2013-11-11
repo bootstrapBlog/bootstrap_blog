@@ -16,6 +16,8 @@ $(function() {
 });
 
 function navigateToRequestedID(elementID) {
+  if(elementID === 'blogPostPanel')
+    getBlogPost('newest');
   var htmlPath = buildHtmlPath(elementID);
   setMainContentAndActiveFlag(elementID, htmlPath);
 }
