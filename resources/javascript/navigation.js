@@ -6,8 +6,8 @@ $(function() {
   loadNavbar();
 
   hideOrShowDivs('#navbarRightWhenLoggedIn', false);
-  loadNewHtmlContentFromFile(buildHtmlPath('blogPostPanel'));
-
+  loadNewHtmlContentFromFile('#mainContentContainer', buildHtmlPath('blogPostPanel'));
+  loadNewHtmlContentFromFile('#blog-carousel', buildHtmlPath('carousel'));
   if(requestedSite !== '') {
     getBlogPost(requestedSite);
   } else {
@@ -17,12 +17,14 @@ $(function() {
 });
 
 function navigateToRequestedID(elementID) {
+  hideOrShowDivs('#blog-carousel', true);
   var htmlPath = buildHtmlPath(elementID);
+
   if(elementID === 'blogPostPanel') {
+    setMainContentAndActiveFlag('#mainContentContainer', elementID, htmlPath);
     getBlogPost('newest');
-    setMainContentAndActiveFlag('home', htmlPath);
   } else {
-    setMainContentAndActiveFlag(elementID, htmlPath);
+    setMainContentAndActiveFlag('#mainContentContainer', elementID, htmlPath);
   }
 }
 
@@ -30,13 +32,13 @@ function buildHtmlPath(elementID) {
   return elementID + '.html';
 }
 
-function setMainContentAndActiveFlag(elementID, htmlPath) {
-  loadNewHtmlContentFromFile(htmlPath);
+function setMainContentAndActiveFlag(containerToLoadInformationIn, elementID, htmlPath) {
+  loadNewHtmlContentFromFile(containerToLoadInformationIn, htmlPath);
   setActiveFlag(elementID);
 }
 
-function loadNewHtmlContentFromFile(htmlPath) {
-  $('#mainContentContainer').load(htmlPath);
+function loadNewHtmlContentFromFile(containerToLoadInformationIn, htmlPath) {
+  $(containerToLoadInformationIn).load(htmlPath);
 }
 
 function loadBlogEntry(elementID, html) {

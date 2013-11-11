@@ -48,6 +48,7 @@ function sendContactInformationToServer(url, json, navigateTo){
     $("#blog-navbar").append('<li id="adminArea">' +
       '<a onclick="navigateToRequestedID(\'adminArea\');">Admin-Panel</a></li>');
     navigateToRequestedID('adminArea');
+    hideOrShowDivs('#blog-carousel', false);
     hideOrShowDivs('#navbarRightWhenLoggedIn', true);
     hideOrShowDivs('#loginForm', false);
     $('#username').text(user);
