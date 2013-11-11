@@ -8,11 +8,12 @@ $(function() {
   hideOrShowDivs('#navbarRightWhenLoggedIn', false);
 
   if(requestedSite !== '') {
-    navigateToRequestedID(requestedSite);
+    getBlogPost(requestedSite);
+  } else {
+    getBlogPost('newest');
   }
 
   loadNewHtmlContentFromFile(buildHtmlPath('blogPostPanel'));
-  getBlogPost('newest');
 });
 
 function navigateToRequestedID(elementID) {

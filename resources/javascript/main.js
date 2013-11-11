@@ -23,7 +23,7 @@ function getFormFieldInformation(form, inputField) {
 
 function buildJson(emailAddress, name, topic, text) {
   var json = {
-    // "emailAddress": emailAddress,
+    "emailAddress": emailAddress,
     "name": name,
     "topic": topic,
     "text": text
@@ -70,7 +70,9 @@ function getBlogPost(blogPost) {
   $.getJSON('/blog/' + blogPost, function(blogData) {
     if(jQuery.isEmptyObject(blogData)) {
       return ;
+
     }
+    // alert(blogData.title);
     loadBlogPost(blogData);
   });
 }
