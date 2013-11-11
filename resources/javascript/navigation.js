@@ -10,8 +10,9 @@ $(function() {
   if(requestedSite !== '') {
     navigateToRequestedID(requestedSite);
   }
-  $('#blog-navbar').append('<li id="myRegistration">' +
-          '<a onclick="navigateToRequestedID(\'adminArea\');">Admin-Panel</a></li>');
+
+  loadNewHtmlContentFromFile(buildHtmlPath('blogPostPanel'));
+  getBlogPost('newest');
 });
 
 function navigateToRequestedID(elementID) {
@@ -32,6 +33,10 @@ function loadNewHtmlContentFromFile(htmlPath) {
   $('#mainContentContainer').load(htmlPath);
 }
 
+function loadBlogEntry(elementID, html) {
+  $(elementID).html(html);
+}
+
 function setActiveFlag(elementID) {
   $('.navbar li').removeClass('active');
   document.getElementById(elementID).className = 'active';
@@ -42,8 +47,6 @@ function loadNavbar() {
 }
 
 function hideOrShowDivs(elementID, isVisible) {
-  // alert(elementID);
-  // alert(isVisible);
   if (isVisible) {
     $(elementID).show();
   } else {

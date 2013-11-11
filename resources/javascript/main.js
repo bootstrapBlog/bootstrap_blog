@@ -65,3 +65,17 @@ function logout() {
   hideOrShowDivs('#loginForm', true);
   location.reload();
 }
+
+function getBlogPost(blogPost) {
+  $.getJSON('/blog/' + blogPost, function(blogData) {
+    if(jQuery.isEmptyObject(blogData)) {
+      return ;
+    }
+    loadBlogPost(blogData);
+  });
+}
+
+function loadBlogPost(blogData) {
+  loadBlogEntry('#blogPostPanelHeader', blogData.title);
+  loadBlogEntry('#blogPostPanelBody', blogData.post);
+}
