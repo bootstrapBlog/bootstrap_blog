@@ -6,6 +6,7 @@ $(function() {
   loadNavbar();
 
   hideOrShowDivs('#navbarRightWhenLoggedIn', false);
+  loadNewHtmlContentFromFile(buildHtmlPath('blogPostPanel'));
 
   if(requestedSite !== '') {
     getBlogPost(requestedSite);
@@ -13,7 +14,6 @@ $(function() {
     getBlogPost('newest');
   }
 
-  loadNewHtmlContentFromFile(buildHtmlPath('blogPostPanel'));
 });
 
 function navigateToRequestedID(elementID) {

@@ -72,7 +72,6 @@ function getBlogPost(blogPost) {
       return ;
 
     }
-    // alert(blogData.title);
     loadBlogPost(blogData);
   });
 }
