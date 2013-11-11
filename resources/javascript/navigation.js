@@ -16,10 +16,13 @@ $(function() {
 });
 
 function navigateToRequestedID(elementID) {
-  if(elementID === 'blogPostPanel')
-    getBlogPost('newest');
   var htmlPath = buildHtmlPath(elementID);
-  setMainContentAndActiveFlag(elementID, htmlPath);
+  if(elementID === 'blogPostPanel') {
+    getBlogPost('newest');
+    setMainContentAndActiveFlag('home', htmlPath);
+  } else {
+    setMainContentAndActiveFlag(elementID, htmlPath);
+  }
 }
 
 function buildHtmlPath(elementID) {
