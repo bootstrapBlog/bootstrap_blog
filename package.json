@@ -24,6 +24,8 @@
     "sha1": "~1.1.0",
     "mongoose": "~3.8.0",
     "nodemailer": "~0.5.5",
-    "coffee-script": "~1.6.3"
+    "coffee-script": "~1.6.3",
+    "passport-local": "~0.1.6",
+    "passport": "~0.1.17"
   }
 }

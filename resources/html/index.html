@@ -43,14 +43,14 @@
         <ul class="nav navbar-nav" id="blog-navbar">
 
         </ul>
-        <form id="loginForm" class="navbar-form navbar-right">
+        <form action="/login" id="loginForm" class="navbar-form navbar-right">
           <div class="form-group">
-            <input type="text" placeholder="Email" id="email" class="form-control" onkeyup="realiseEnterButton(event)">
+            <input type="text" placeholder="Username" id="username" name="username" class="form-control">
           </div>
           <div class="form-group">
-            <input type="password" placeholder="Password" id="password" class="form-control" onkeyup="realiseEnterButton(event)">
+            <input type="password" placeholder="Password" name="password" id="password" class="form-control">
           </div>
-          <a type="submit" class="btn btn-success" onclick="getAuthenticationValues()">Sign in</a>
+          <button type="submit" class="btn btn-success">Sign in</button>
         </form>
         <div id="navbarRightWhenLoggedIn">
           <ul class="nav navbar-nav navbar-right">
